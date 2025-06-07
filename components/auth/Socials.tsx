@@ -2,31 +2,15 @@
 
 import React from 'react'
 import { Button } from '@chakra-ui/react'
-import { signIn } from 'next-auth/react'
+import { signIn } from '@/server/auth'
+import { GoogleSignIn } from '@/server/actions/GoogleSIgnIn'
+import { GithubSignIn } from '@/server/actions/GithubSignIn'
 
 const Socials = () => {
 	return (
 		<div>
-			<Button
-				onClick={() =>
-					signIn('google', {
-						redirect: false,
-						callback: '/',
-					})
-				}
-			>
-				Sign in with Google
-			</Button>
-			<Button
-				onClick={() =>
-					signIn('github', {
-						redirect: false,
-						callback: '/',
-					})
-				}
-			>
-				Sign in with Github
-			</Button>
+			<Button onClick={() => GoogleSignIn()}>Sign in with Google</Button>
+			<Button onClick={() => GithubSignIn()}>Sign in with Github</Button>
 		</div>
 	)
 }

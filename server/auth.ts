@@ -8,12 +8,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 	adapter: DrizzleAdapter(db),
 	providers: [
 		Google({
-			clientId: process.env.GOOGLE_CLIENT_ID!,
-			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+			clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
+			clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET!,
 		}),
 		Github({
-			clientId: process.env.GITHUB_ID!,
-			clientSecret: process.env.GITHUB_SECRET!,
+			clientId: process.env.NEXT_PUBLIC_GITHUB_ID!,
+			clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET!,
 		}),
 	],
+	secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+	pages: {
+		signIn: '/auth/login',
+	},
 })
