@@ -17,8 +17,6 @@ const LoginForm = () => {
 		formState: { errors },
 	} = useForm<FormValues>()
 
-	console.log(errors)
-
 	const onSubmit = handleSubmit((data) => {
 		console.log(data)
 	})

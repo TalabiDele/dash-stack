@@ -25,9 +25,10 @@ const config = defineConfig({
 				},
 				border: {
 					DEFAULT: {
-						value: { _light: '{colors.gray.200}', _dark: '#979797' }, // Custom dark border
+						value: { _light: '{colors.gray.200}', _dark: '#313d4f' }, // Custom dark border
 					},
 				},
+				hover: {},
 			},
 		},
 	},

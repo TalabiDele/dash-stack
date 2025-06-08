@@ -12,7 +12,7 @@ type BackButtonType = {
 const BackButton = ({ href, label }: BackButtonType) => {
 	return (
 		<div>
-			<Button>
+			<Button bg={'none'} color={'white'} _hover={{}}>
 				<Link aria-label={label} href={href}>
 					{label}
 				</Link>
