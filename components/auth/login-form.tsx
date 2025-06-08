@@ -2,18 +2,65 @@
 
 import React from 'react'
 import AuthCard from './AuthCard'
+import { useForm } from 'react-hook-form'
+import { Button, Field, Input, Stack } from '@chakra-ui/react'
+
+type FormValues = {
+	email: string
+	password: string
+}
 
 const LoginForm = () => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<FormValues>()
+
+	console.log(errors)
+
+	const onSubmit = handleSubmit((data) => {
+		console.log(data)
+	})
+
 	return (
-		<AuthCard
-			cardTitle='Welcome Back'
-			cardDescription='Login to your account'
-			backButtonHref='/auth/register'
-			backButtonLabel='Create a new account'
-			showSocials
-		>
-			<div className=''></div>
-		</AuthCard>
+		<div className=''>
+			<AuthCard
+				cardTitle='Welcome Back'
+				cardDescription='Login to your account'
+				backButtonHref='/auth/register'
+				backButtonLabel='Create a new account'
+				showSocials
+			>
+				<form onSubmit={onSubmit}>
+					<Stack gap='4' align='flex-start' maxW='lg'>
+						<Field.Root invalid={!!errors.email}>
+							<Field.Label>Email</Field.Label>
+							<Input
+								{...register('email', { required: 'Email is required' })}
+								placeholder='Enter email'
+								type='email'
+							/>
+							<Field.ErrorText>{errors.email?.message}</Field.ErrorText>
+						</Field.Root>
+
+						<Field.Root invalid={!!errors.password}>
+							<Field.Label>Password</Field.Label>
+							<Input
+								{...register('password', { required: 'Password is required' })}
+								placeholder='Enter password'
+								type='password'
+							/>
+							<Field.ErrorText>{errors.password?.message}</Field.ErrorText>
+						</Field.Root>
+
+						<Button type='submit' maxW={'lg'}>
+							Login
+						</Button>
+					</Stack>
+				</form>
+			</AuthCard>
+		</div>
 	)
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Field, Input, Stack } from '@chakra-ui/react'
+import { Button, Card, Center, Field, Input, Stack } from '@chakra-ui/react'
 import Socials from './Socials'
 import BackButton from './back-button'
 
@@ -21,21 +21,31 @@ const AuthCard = ({
 	cardDescription,
 }: CardWrapperProps) => {
 	return (
-		<Card.Root maxW='lg' bgColor={'bg.subtle'}>
-			<Card.Header>
-				<Card.Title>{cardTitle}</Card.Title>
-				<Card.Description>{cardDescription}</Card.Description>
-			</Card.Header>
-			<Card.Body>{children}</Card.Body>
-			{showSocials && (
-				<Card.Footer justifyContent='flex-end'>
-					<Socials />
+		<div className=' flex h-[100vh] items-center'>
+			<Card.Root
+				w='lg'
+				bgColor={'bg.subtle'}
+				justifyContent={'center'}
+				mx={'auto'}
+			>
+				<Card.Header>
+					<Card.Title>{cardTitle}</Card.Title>
+					<Card.Description>{cardDescription}</Card.Description>
+				</Card.Header>
+				<Card.Body>{children}</Card.Body>
+				{showSocials && (
+					<>
+						<Center mb={'1rem'}>Or sign in with</Center>
+						<Card.Footer justifyContent='center'>
+							<Socials />
+						</Card.Footer>
+					</>
+				)}
+				<Card.Footer justifyContent='center'>
+					<BackButton href={backButtonHref} label={backButtonLabel} />
 				</Card.Footer>
-			)}
-			<Card.Footer>
-				<BackButton href={backButtonHref} label={backButtonLabel} />
-			</Card.Footer>
-		</Card.Root>
+			</Card.Root>
+		</div>
 	)
 }
 
