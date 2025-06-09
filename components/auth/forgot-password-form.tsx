@@ -6,15 +6,15 @@ import { useForm } from 'react-hook-form'
 import { Button, Field, Input, Stack } from '@chakra-ui/react'
 import ButtonComponent from '../ui/buttons/submit-button'
 import Link from 'next/link'
-import { LoginFormValues } from '@/utils/types'
+import { ForgotPasswordFormValues } from '@/utils/types'
 
-const LoginForm = () => {
+const ForgotPasswordForm = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm<LoginFormValues>()
+	} = useForm<ForgotPasswordFormValues>()
 
 	const onSubmit = handleSubmit((data) => {
 		console.log(data)
@@ -23,11 +23,10 @@ const LoginForm = () => {
 	return (
 		<div className=''>
 			<AuthCard
-				cardTitle='Welcome Back'
-				cardDescription='Login to your account'
-				backButtonHref='/auth/register'
-				backButtonLabel='Create a new account'
-				showSocials
+				cardTitle='Forgot Password'
+				cardDescription='Change your password'
+				backButtonHref='/auth/login'
+				backButtonLabel='Back to Login'
 			>
 				<form onSubmit={onSubmit}>
 					<Stack gap='4' align='flex-start' maxW='lg'>
@@ -41,21 +40,7 @@ const LoginForm = () => {
 							<Field.ErrorText>{errors.email?.message}</Field.ErrorText>
 						</Field.Root>
 
-						<Field.Root invalid={!!errors.password}>
-							<Field.Label>Password</Field.Label>
-							<Input
-								{...register('password', { required: 'Password is required' })}
-								placeholder='Enter password'
-								type='password'
-							/>
-							<Field.ErrorText>{errors.password?.message}</Field.ErrorText>
-						</Field.Root>
-
-						<Stack _hover={{ color: 'brand.100' }}>
-							<Link href={'/auth/forgot-password'}>Forgot Password?</Link>
-						</Stack>
-
-						<ButtonComponent buttonText='Login' />
+						<ButtonComponent buttonText='Submit' />
 					</Stack>
 				</form>
 			</AuthCard>
@@ -63,4 +48,4 @@ const LoginForm = () => {
 	)
 }
 
-export default LoginForm
+export default ForgotPasswordForm

@@ -1,13 +1,9 @@
 'use client'
 
+import { BackButtonType } from '@/utils/types'
 import { Button } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
-
-type BackButtonType = {
-	href: string
-	label: string
-}
 
 const BackButton = ({ href, label }: BackButtonType) => {
 	return (

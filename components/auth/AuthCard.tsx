@@ -3,15 +3,7 @@ import { Button, Card, Center, Field, Input, Stack } from '@chakra-ui/react'
 import Socials from './Socials'
 import BackButton from './back-button'
 import Logo from '../ui/logo'
-
-type CardWrapperProps = {
-	children: React.ReactNode
-	cardTitle: string
-	backButtonHref: string
-	backButtonLabel: string
-	showSocials?: boolean
-	cardDescription: string
-}
+import { CardWrapperProps } from '@/utils/types'
 
 const AuthCard = ({
 	children,
