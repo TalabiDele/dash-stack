@@ -4,6 +4,10 @@ const config = defineConfig({
 	theme: {
 		semanticTokens: {
 			colors: {
+				brand: {
+					50: { value: 'rgba(72, 128, 255, 0.15)' },
+					100: { value: '#4880FF' },
+				},
 				bg: {
 					DEFAULT: {
 						value: { _light: '{colors.white}', _dark: '#1B2431' }, // Custom dark background
@@ -28,7 +32,6 @@ const config = defineConfig({
 						value: { _light: '{colors.gray.200}', _dark: '#313d4f' }, // Custom dark border
 					},
 				},
-				hover: {},
 			},
 		},
 	},

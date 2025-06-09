@@ -4,6 +4,7 @@ import React from 'react'
 import AuthCard from './AuthCard'
 import { useForm } from 'react-hook-form'
 import { Button, Field, Input, Stack } from '@chakra-ui/react'
+import ButtonComponent from '../ui/buttons/submit-button'
 
 type FormValues = {
 	email: string
@@ -52,9 +53,7 @@ const LoginForm = () => {
 							<Field.ErrorText>{errors.password?.message}</Field.ErrorText>
 						</Field.Root>
 
-						<Button type='submit' maxW={'lg'}>
-							Login
-						</Button>
+						<ButtonComponent buttonText='Login' />
 					</Stack>
 				</form>
 			</AuthCard>

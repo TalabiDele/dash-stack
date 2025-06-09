@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Card, Center, Field, Input, Stack } from '@chakra-ui/react'
 import Socials from './Socials'
 import BackButton from './back-button'
+import Logo from '../ui/logo'
 
 type CardWrapperProps = {
 	children: React.ReactNode
@@ -29,6 +30,7 @@ const AuthCard = ({
 				mx={'auto'}
 			>
 				<Card.Header>
+					<Logo />
 					<Card.Title>{cardTitle}</Card.Title>
 					<Card.Description>{cardDescription}</Card.Description>
 				</Card.Header>
