@@ -16,8 +16,21 @@ type FormValues = {
 	confirmPassword: string
 }
 
-const passwordSchema = z
+const registerFormSchema = z
 	.object({
+		// New fields: firstName, lastName, and email
+		firstName: z
+			.string()
+			.min(1, { message: 'First name is required.' })
+			.max(50, { message: 'First name cannot exceed 50 characters.' }),
+		lastName: z
+			.string()
+			.min(1, { message: 'Last name is required.' })
+			.max(50, { message: 'Last name cannot exceed 50 characters.' }),
+		email: z
+			.string()
+			.min(1, { message: 'Email is required.' })
+			.email({ message: 'Invalid email address.' }),
 		password: z
 			.string()
 			.min(8, { message: 'Password must be at least 8 characters long.' })
@@ -47,7 +60,7 @@ const RegisterForm = () => {
 		formState: { errors },
 		reset,
 	} = useForm<FormValues>({
-		resolver: zodResolver(passwordSchema),
+		resolver: zodResolver(registerFormSchema),
 	})
 
 	const onSubmit = handleSubmit((data) => {
