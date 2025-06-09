@@ -81,18 +81,25 @@ const RegisterForm = () => {
 						<Field.Root invalid={!!errors.firstName}>
 							<Field.Label>First Name</Field.Label>
 							<Input
-								{...register('firstName', {
-									required: 'First name is required',
-								})}
+								{...register('firstName')}
 								placeholder='Enter first name'
 								type='text'
 							/>
-							<Field.ErrorText>{errors.email?.message}</Field.ErrorText>
+							<Field.ErrorText>{errors.firstName?.message}</Field.ErrorText>
+						</Field.Root>
+						<Field.Root invalid={!!errors.lastName}>
+							<Field.Label>Last Name</Field.Label>
+							<Input
+								{...register('lastName')}
+								placeholder='Enter last name'
+								type='text'
+							/>
+							<Field.ErrorText>{errors.lastName?.message}</Field.ErrorText>
 						</Field.Root>
 						<Field.Root invalid={!!errors.email}>
 							<Field.Label>Email</Field.Label>
 							<Input
-								{...register('email', { required: 'Email is required' })}
+								{...register('email')}
 								placeholder='Enter email'
 								type='email'
 							/>
@@ -102,7 +109,7 @@ const RegisterForm = () => {
 						<Field.Root invalid={!!errors.password}>
 							<Field.Label>Password</Field.Label>
 							<Input
-								{...register('password', { required: 'Password is required' })}
+								{...register('password')}
 								placeholder='Enter password'
 								type='password'
 							/>
@@ -111,9 +118,7 @@ const RegisterForm = () => {
 						<Field.Root invalid={!!errors.confirmPassword}>
 							<Field.Label>Confirm Password</Field.Label>
 							<Input
-								{...register('confirmPassword', {
-									required: 'Confirm password is required',
-								})}
+								{...register('confirmPassword')}
 								placeholder='Enter confirm password'
 								type='password'
 							/>
