@@ -32,9 +32,7 @@ export default function RootLayout({
 	return (
 		<html lang='en' suppressHydrationWarning>
 			<body className={`${nunitoSans.variable} antialiased`}>
-				{/* <ReduxProvider> */}
 				<Provider>{children}</Provider>
-				{/* </ReduxProvider> */}
 			</body>
 		</html>
 	)
