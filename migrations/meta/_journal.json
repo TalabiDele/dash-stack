@@ -15,6 +15,20 @@
       "when": 1749135360452,
       "tag": "0001_wise_bruce_banner",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1749477513917,
+      "tag": "0002_true_nocturne",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1749552881193,
+      "tag": "0003_big_zombie",
+      "breakpoints": true
     }
   ]
 }
