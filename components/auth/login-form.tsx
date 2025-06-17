@@ -15,6 +15,7 @@ const LoginForm = () => {
 	const {
 		register,
 		handleSubmit,
+		formState: { isSubmitting },
 		formState: { errors },
 		reset,
 	} = useForm<LoginFormValues>()
@@ -32,7 +33,6 @@ const LoginForm = () => {
 			}
 
 			const res = await action(schemaResult.data)
-			console.log(res)
 			if (res && !res?.status) {
 				// toast error
 				showToast(res?.status, res?.message)
@@ -80,7 +80,7 @@ const LoginForm = () => {
 							<Link href={'/auth/forgot-password'}>Forgot Password?</Link>
 						</Stack>
 
-						<ButtonComponent buttonText='Login' />
+						<ButtonComponent buttonText='Login' isLoading={isSubmitting} />
 					</Stack>
 				</form>
 			</AuthCard>
