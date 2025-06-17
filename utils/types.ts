@@ -25,6 +25,13 @@ export type RegisterFormValues = {
 	confirmPassword: string
 }
 
+export type RegisterSubmit = {
+	firstName: string
+	lastName: string
+	email: string
+	password: string
+}
+
 export type ForgotPasswordFormValues = {
 	email: string
 }

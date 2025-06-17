@@ -15,14 +15,11 @@ const LoginForm = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { isSubmitting },
-		formState: { errors },
+		formState: { errors, isSubmitting },
 		reset,
 	} = useForm<LoginFormValues>()
 
 	const onSubmit = handleSubmit(async (data) => {
-		console.log(data)
-
 		try {
 			const email = data?.email
 			const password = data?.password
