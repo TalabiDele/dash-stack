@@ -28,3 +28,9 @@ export type RegisterFormValues = {
 export type ForgotPasswordFormValues = {
 	email: string
 }
+
+export type LoginType = {
+	id: string
+	email: string
+	password: string
+}
