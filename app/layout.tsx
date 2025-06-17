@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import ReduxProvider from '@/components/ReduxProvider'
 import { Provider } from '@/components/ui/provider'
+import { Toaster } from '@/components/ui/toaster'
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -32,7 +33,10 @@ export default function RootLayout({
 	return (
 		<html lang='en' suppressHydrationWarning>
 			<body className={`${nunitoSans.variable} antialiased`}>
-				<Provider>{children}</Provider>
+				<Provider>
+					<Toaster />
+					{children}
+				</Provider>
 			</body>
 		</html>
 	)
